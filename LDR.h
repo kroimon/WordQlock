@@ -15,11 +15,12 @@ class LDR {
   public:
     LDR(byte pin);
 
-    int readRaw();
-    byte read();
+    int read() const;
+    int readSmoothed();
 
   private:
     byte pin;
+    float smoothedValue;
 };
 
 #endif

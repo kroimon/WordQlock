@@ -167,13 +167,9 @@ void loop() {
 void adjustBrightness() {
   static unsigned long nextAdjustment = 0;
   static byte noChangeCounter = 0;
-  static float brightness = 255;
 
   if (nextAdjustment <= millis()) {
-    byte ldrValue = ldr.read();
-    float setpoint = (float) max(50, ldrValue);
-    brightness += BRIGHTNESS_GAIN * (setpoint - brightness);
-    byte newBrightness = (byte) constrain(brightness, 0, 255);
+    byte newBrightness = max(50, ldr.readSmoothed() / 4);
 
     if (matrix.getBrightness() != newBrightness) {
       matrix.setBrightness(newBrightness);
@@ -248,7 +244,7 @@ void commandShow() {
     Serial.print(Constant("Light sensor: "));
     Serial.print(ldr.read());
     Serial.print(Constant(" ("));
-    Serial.print(ldr.readRaw());
+    Serial.print(ldr.readSmoothed());
     Serial.println(')');
   }
   else if (strcmp_P(arg, PSTR("memory")) == 0) {
