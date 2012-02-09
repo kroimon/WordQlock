@@ -65,4 +65,3 @@ inline byte Matrix::getBrightness() const {
 }
 
 #endif
-

@@ -32,4 +32,3 @@ int LDR::readRaw() {
 byte LDR::read() {
   return constrain(map(analogRead(pin), LDR_SAMPLE_DARK, LDR_SAMPLE_BRIGHT, 0, 255), 0, 255);
 }
-

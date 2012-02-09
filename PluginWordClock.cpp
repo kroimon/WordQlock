@@ -119,4 +119,3 @@ void PluginWordClock::update(unsigned long timeDiff, boolean realtimeSync) {
 void PluginWordClock::buttonPressed(PressedButton button) {
   // TODO
 }
-

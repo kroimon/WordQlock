@@ -41,4 +41,3 @@ void PluginDate::onTextWrap() {
   text[pos++] = '0' + (year % 10);
   text[pos] = '\0';
 }
-

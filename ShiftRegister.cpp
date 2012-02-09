@@ -159,4 +159,3 @@ void ShiftRegister::fastDigitalWriteToOE(boolean state) const {
 }
 
 #endif // SHIFTREGISTER_FASTWRITE
-

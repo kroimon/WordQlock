@@ -232,4 +232,3 @@ boolean DCF77::isConsecutiveTimeStamp(TimeStamp &oldTimeStamp, TimeStamp &newTim
 TimeStamp DCF77::getTime() {
   return validTimeStamp;
 }
-

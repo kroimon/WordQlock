@@ -23,4 +23,3 @@ class LDR {
 };
 
 #endif
-

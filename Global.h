@@ -13,10 +13,9 @@
 #include "RTC.h"
 #include "Thermometer.h"
 
-// Global variable declarations - definitions in WordQlock.ino
+// Global variable declarations - definitions in WordQlock.pde
 extern Matrix matrix;
 extern RTC rtc;
 extern Thermometer thermometer;
 
 #endif
-

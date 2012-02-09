@@ -46,4 +46,3 @@ FixedPoint8 Thermometer::read() const {
   Wire.requestFrom(address, 2u);
   return FixedPoint8(Wire.read(), Wire.read());
 }
-

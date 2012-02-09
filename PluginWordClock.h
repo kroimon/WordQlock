@@ -21,4 +21,3 @@ class PluginWordClock : public Plugin {
 };
 
 #endif
-

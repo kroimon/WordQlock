@@ -87,4 +87,3 @@ inline byte TimeStamp::getYear() const {
 }
 
 #endif
-

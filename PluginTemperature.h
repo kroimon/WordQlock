@@ -26,4 +26,3 @@ class PluginTemperature : public TextScrollerPlugin {
 };
 
 #endif
-

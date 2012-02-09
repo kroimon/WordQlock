@@ -74,4 +74,3 @@ class TextScrollerPlugin : public Plugin {
 
 
 #endif
-

@@ -24,4 +24,3 @@ class PluginStatic : public Plugin {
 };
 
 #endif
-

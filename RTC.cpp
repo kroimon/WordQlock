@@ -69,4 +69,3 @@ byte RTC::decToBcd(const byte val) const {
 byte RTC::bcdToDec(const byte val) const {
   return ((val / 16 * 10) + (val % 16));
 }
-

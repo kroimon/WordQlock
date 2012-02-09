@@ -102,4 +102,3 @@ void PluginStatic::buttonPressed(PressedButton button) {
   }
   needsUpdate = true;
 }
-

@@ -20,4 +20,3 @@ class PluginSeconds : public Plugin {
 };
 
 #endif
-

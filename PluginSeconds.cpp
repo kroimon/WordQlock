@@ -30,4 +30,3 @@ void PluginSeconds::update(unsigned long timeDiff, boolean realtimeSync) {
   matrix.clear();
   matrix.print(str);
 }
-

@@ -168,4 +168,3 @@ String TimeStamp::toString() const {
 
   return String(str);
 }
-

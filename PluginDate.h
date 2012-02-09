@@ -23,4 +23,3 @@ class PluginDate : public TextScrollerPlugin {
 };
 
 #endif
-

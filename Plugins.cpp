@@ -126,4 +126,3 @@ void TextScrollerPlugin::update(unsigned long timeDiff, boolean realtimeSync) {
     offset--;
   }
 }
-

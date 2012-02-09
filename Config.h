@@ -58,6 +58,7 @@
 #define LDR_SAMPLE_DARK    1000
 #define LDR_SAMPLE_BRIGHT   200
 
+// The "speed" of matrix brightness adaption to ambient brightness changes
 #define BRIGHTNESS_GAIN .2f
 
 #endif

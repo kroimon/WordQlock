@@ -12,7 +12,8 @@
 #define TEXT_SPACING 0
 
 /**
- * Initializes the matrix using a shift register for output.
+ * Initializes the matrix.
+ * Takes the shift register for multiplexing the LEDs and a PWM pin for brightness control.
  */
 Matrix::Matrix(const ShiftRegister &shiftReg, byte pwmPin)
   : shiftReg(shiftReg),
@@ -27,7 +28,7 @@ Matrix::Matrix(const ShiftRegister &shiftReg, byte pwmPin)
 
 
 /**
- * Clears the matrix turning every single LED off.
+ * Clears the matrix turning off every single LED.
  */
 void Matrix::clear() {
   for (byte i = 0; i < MATRIX_ROWS; i++) {
@@ -147,7 +148,7 @@ void Matrix::print(const char *str, const int x) {
 }
 
 /**
- * 
+ * Returns the width of the given string in pixels.
  */
 word Matrix::getTextWidth(const char *str) {
   size_t len = strlen(str);
@@ -206,7 +207,7 @@ void Matrix::writeRow(const byte row) const {
 
 /**
  * Returns a String representation of the current matrix contents.
- * Yepp I know, String class and these loops and concatenations in here are evil, but so I am.
+ * Yepp I know, String class and these loops and concatenations in here are evil, but so am I.
  */
 String Matrix::toString() {
   String s;
@@ -237,4 +238,3 @@ String Matrix::toString() {
 
   return s;
 }
-

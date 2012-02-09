@@ -26,4 +26,3 @@ void PluginTemperature::onTextWrap() {
   text[pos++] = 'C';
   text[pos++] = '\0';
 }
-
