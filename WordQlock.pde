@@ -32,6 +32,7 @@
 #include "PluginSeconds.h"
 #include "PluginDate.h"
 #include "PluginTemperature.h"
+#include "PluginBinary.h"
 #include "PluginPong.h"
 #include "PluginStatic.h"
 
@@ -90,6 +91,7 @@ void setup() {
   pluginManager.registerPlugin(new PluginSeconds());
   pluginManager.registerPlugin(new PluginDate());
   pluginManager.registerPlugin(new PluginTemperature());
+  pluginManager.registerPlugin(new PluginBinary());
   pluginManager.registerPlugin(new PluginPong());
   #ifdef DEBUG
     pluginManager.registerPlugin(new PluginStatic());
