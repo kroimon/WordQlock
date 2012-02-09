@@ -27,6 +27,8 @@ class Matrix {
     void clear();
     void setRow  (byte row, word data);
     void setRowOr(byte row, word data);
+    void setCol  (byte col, word data);
+    void setColOr(byte col, word data);
     void setPixel(byte x, byte y);
     void setCorner(byte corner);
     void setCorners(byte count);

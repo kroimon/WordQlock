@@ -55,6 +55,34 @@ void Matrix::setRowOr(byte row, word data) {
 }
 
 /**
+ * Sets all bits of the specified column, lsb (least-significant bit) top.
+ */
+void Matrix::setCol(byte col, word data) {
+  if (col >= 0 && col < MATRIX_COLS) {
+    for (byte row = 0; row < MATRIX_ROWS; row++) {
+      if ((data >> row) & 0x01) {
+        matrix[row] |= (0b1000000000000000 >> col);
+      } else {
+        matrix[row] &= ~(0b1000000000000000 >> col);
+      }
+    }
+  }
+}
+
+/**
+ * Performs a bitwise OR with the given data on the specified column, lsb (least-significant bit) top.
+ */
+void Matrix::setColOr(byte col, word data) {
+  if (col >= 0 && col < MATRIX_COLS) {
+    for (byte row = 0; row < MATRIX_ROWS; row++) {
+      if ((data >> row) & 0x01) {
+        matrix[row] |= (0b1000000000000000 >> col);
+      }
+    }
+  }
+}
+
+/**
  * Turns on the specified pixel.
  * Origin is the upper left corner of the matrix.
  */
