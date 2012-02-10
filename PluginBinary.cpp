@@ -9,7 +9,8 @@
 #include "PluginBinary.h"
 #include "Global.h"
 
-#define MODE_COUNT 8
+// Set this to 8 to enable additional modes
+#define MODE_COUNT 4
 
 
 /**
@@ -81,6 +82,7 @@ void PluginBinary::update(unsigned long timeDiff, boolean realtimeSync) {
       matrix.setCol(7, reverse(seconds10) << (MATRIX_ROWS - 8));
       matrix.setCol(8, reverse(seconds  ) << (MATRIX_ROWS - 8));
       break;
+#if MODE_COUNT > 4
     case 4: // Horizontal, left-aligned
       matrix.setRow(2, reverse(hours  ) << (MATRIX_COLS - 8));
       matrix.setRow(4, reverse(minutes) << (MATRIX_COLS - 8));
@@ -107,6 +109,7 @@ void PluginBinary::update(unsigned long timeDiff, boolean realtimeSync) {
       matrix.setCol(7, seconds10);
       matrix.setCol(8, seconds  );
       break;
+#endif
   }
 }
 
