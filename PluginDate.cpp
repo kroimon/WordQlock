@@ -25,19 +25,15 @@ void PluginDate::onTextWrap() {
 
   //snprintf_P(text, 15, PSTR("%s, %02d.%02d.%02d"), dayOfWeekStr, t.getDay(), t.getMonth(), t.getYear());
 
-  byte pos = strlen(strcpy(text, t.getDayOfWeekString()));
-  text[pos++] = ',';
-  text[pos++] = ' ';
+  strcpy(text, t.getDayOfWeekString());
+  strcat_P(text, PSTR(", 00.00.00"));
   byte day   = t.getDay();
-  text[pos++] = '0' + (day / 10);
-  text[pos++] = '0' + (day % 10);
-  text[pos++] = '.';
+  text[4] += (day / 10);
+  text[5] += (day % 10);
   byte month = t.getMonth();
-  text[pos++] = '0' + (month / 10);
-  text[pos++] = '0' + (month % 10);
-  text[pos++] = '.';
+  text[7] += (month / 10);
+  text[8] += (month % 10);
   byte year  = t.getYear();
-  text[pos++] = '0' + (year / 10);
-  text[pos++] = '0' + (year % 10);
-  text[pos] = '\0';
+  text[10] += (year / 10);
+  text[11] += (year % 10);
 }

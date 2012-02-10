@@ -23,59 +23,68 @@ PluginStatic::PluginStatic()
  * 
  */
 void PluginStatic::update(unsigned long timeDiff, boolean realtimeSync) {
+  static const word patterns[][MATRIX_ROWS] PROGMEM = {
+    { // Test pattern 1
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010
+    }, { // Test pattern 2
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101,
+      0b01010101010,
+      0b10101010101
+    }, { // Heart shape
+      0b00000000000,
+      0b00110001100,
+      0b01001010010,
+      0b01000100010,
+      0b01000000010,
+      0b00100000100,
+      0b00010001000,
+      0b00001010000,
+      0b00000100000,
+      0b00000000000
+    }
+  };
+
   matrix.clear();
   switch (pattern) {
     case 0:
-      matrix.setRow(0, 0b10101010101);
-      matrix.setRow(1, 0b01010101010);
-      matrix.setRow(2, 0b10101010101);
-      matrix.setRow(3, 0b01010101010);
-      matrix.setRow(4, 0b10101010101);
-      matrix.setRow(5, 0b01010101010);
-      matrix.setRow(6, 0b10101010101);
-      matrix.setRow(7, 0b01010101010);
-      matrix.setRow(8, 0b10101010101);
-      matrix.setRow(9, 0b01010101010);
+      for (byte row = 0; row < MATRIX_ROWS; row++) {
+        matrix.setRow(row, pgm_read_word(&patterns[0][row]));
+      }
       matrix.setCorner(MATRIX_CORNER_UPPER_LEFT);
       matrix.setCorner(MATRIX_CORNER_UPPER_RIGHT);
       break;
     case 1:
-      matrix.setRow(0, 0b01010101010);
-      matrix.setRow(1, 0b10101010101);
-      matrix.setRow(2, 0b01010101010);
-      matrix.setRow(3, 0b10101010101);
-      matrix.setRow(4, 0b01010101010);
-      matrix.setRow(5, 0b10101010101);
-      matrix.setRow(6, 0b01010101010);
-      matrix.setRow(7, 0b10101010101);
-      matrix.setRow(8, 0b01010101010);
-      matrix.setRow(9, 0b10101010101);
+      for (byte row = 0; row < MATRIX_ROWS; row++) {
+        matrix.setRow(row, pgm_read_word(&patterns[1][row]));
+      }
       matrix.setCorner(MATRIX_CORNER_LOWER_LEFT);
       matrix.setCorner(MATRIX_CORNER_LOWER_RIGHT);
       break;
     case 2:
-      matrix.setRow(0, 0b00000000000);
-      matrix.setRow(1, 0b00110001100);
-      matrix.setRow(2, 0b01001010010);
-      matrix.setRow(3, 0b01000100010);
-      matrix.setRow(4, 0b01000000010);
-      matrix.setRow(5, 0b00100000100);
-      matrix.setRow(6, 0b00010001000);
-      matrix.setRow(7, 0b00001010000);
-      matrix.setRow(8, 0b00000100000);
-      matrix.setRow(9, 0b00000000000);
+      for (byte row = 0; row < MATRIX_ROWS; row++) {
+        matrix.setRow(row, pgm_read_word(&patterns[2][row]));
+      }
       break;
     case 3:
-      matrix.setRow(0, 0b11111111111);
-      matrix.setRow(1, 0b11111111111);
-      matrix.setRow(2, 0b11111111111);
-      matrix.setRow(3, 0b11111111111);
-      matrix.setRow(4, 0b11111111111);
-      matrix.setRow(5, 0b11111111111);
-      matrix.setRow(6, 0b11111111111);
-      matrix.setRow(7, 0b11111111111);
-      matrix.setRow(8, 0b11111111111);
-      matrix.setRow(9, 0b11111111111);
+      for (byte row = 0; row < MATRIX_ROWS; row++) {
+        matrix.setRow(row, 0b11111111111);
+      }
       matrix.setCorners(4);
       break;
     case 4:

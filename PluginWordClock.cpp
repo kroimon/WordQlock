@@ -112,10 +112,3 @@ void PluginWordClock::update(unsigned long timeDiff, boolean realtimeSync) {
     case  0: matrix.setRowOr(8, 0b00000011111); break;  // ZWÖLF
   }
 }
-
-/**
- *
- */
-void PluginWordClock::buttonPressed(PressedButton button) {
-  // TODO
-}

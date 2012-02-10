@@ -144,27 +144,20 @@ String TimeStamp::toString() const {
 
   // snprintf_P(str, 25, PSTR("%s, %02d.%02d.%02d %02d:%02d:%02d"), getDayOfWeekString(), day, month, year, hours, minutes, seconds);
 
-  byte pos = strlen(strcpy(str, getDayOfWeekString()));
-  str[pos++] = ',';
-  str[pos++] = ' ';
-  str[pos++] = '0' + (day / 10);
-  str[pos++] = '0' + (day % 10);
-  str[pos++] = '.';
-  str[pos++] = '0' + (month / 10);
-  str[pos++] = '0' + (month % 10);
-  str[pos++] = '.';
-  str[pos++] = '0' + (year / 10);
-  str[pos++] = '0' + (year % 10);
-  str[pos++] = ' ';
-  str[pos++] = '0' + (hours / 10);
-  str[pos++] = '0' + (hours % 10);
-  str[pos++] = ':';
-  str[pos++] = '0' + (minutes / 10);
-  str[pos++] = '0' + (minutes % 10);
-  str[pos++] = ':';
-  str[pos++] = '0' + (seconds / 10);
-  str[pos++] = '0' + (seconds % 10);
-  str[pos] = '\0';
+  strcpy(str, getDayOfWeekString());
+  strcat_P(str, PSTR(", 00.00.00 00:00:00"));
+  str[4]  += (day / 10);
+  str[5]  += (day % 10);
+  str[7]  += (month / 10);
+  str[8]  += (month % 10);
+  str[10] += (year / 10);
+  str[11] += (year % 10);
+  str[13] += (hours / 10);
+  str[14] += (hours % 10);
+  str[16] += (minutes / 10);
+  str[17] += (minutes % 10);
+  str[19] += (seconds / 10);
+  str[20] += (seconds % 10);
 
   return String(str);
 }

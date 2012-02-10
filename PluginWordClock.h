@@ -17,7 +17,6 @@ class PluginWordClock : public Plugin {
     PluginWordClock();
 
     virtual void update(unsigned long timeDiff, boolean realtimeSync);
-    virtual void buttonPressed(PressedButton button);
 };
 
 #endif

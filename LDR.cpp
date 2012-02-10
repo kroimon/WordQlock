@@ -24,7 +24,9 @@ LDR::LDR(byte pin)
  * Returns the current LDR value, mapped between 0 and 1023 using LDR_SAMPLE_DARK and LDR_SAMPLE_BRIGHT.
  */
 int LDR::read() const {
-  return constrain(map(analogRead(pin), LDR_SAMPLE_DARK, LDR_SAMPLE_BRIGHT, 0, 1023), 0, 1023);
+  int value = analogRead(pin);
+  value = map(value, LDR_SAMPLE_DARK, LDR_SAMPLE_BRIGHT, 0, 1023);
+  return constrain(value, 0, 1023);
 }
 
 /**
